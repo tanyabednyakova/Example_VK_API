@@ -87,15 +87,6 @@ namespace Example_VK_API
             foreach (var wallPosts in get.WallPosts)
                 Console.WriteLine(Encoding.Default.GetString(Encoding.UTF8.GetBytes(wallPosts.Text)));
 
-
-            // этот текст в ветке test2
-
-
-
-
-
-
-
         }
     }
 }
