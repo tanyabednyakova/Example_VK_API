@@ -77,6 +77,7 @@ namespace Example_VK_API
                 Console.WriteLine(Encoding.Default.GetString(Encoding.UTF8.GetBytes(wallPosts.Text)));
 
 
+            // этот текст в ветке test2
 
 
 
