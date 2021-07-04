@@ -76,11 +76,6 @@ namespace Example_VK_API
             foreach (var wallPosts in get.WallPosts)
                 Console.WriteLine(Encoding.Default.GetString(Encoding.UTF8.GetBytes(wallPosts.Text)));
 
-            //var groups = api.Groups.Get(new VkNet.Model.RequestParams.GroupsGetParams() { UserId = getFollowers[0].Id });
-            //foreach (var g in groups)
-            //{
-
-            //}
 
 
 
