@@ -58,13 +58,6 @@ namespace Example_VK_API
                 AccessToken = getAuthForGroup()
             });
 
-            // получить список подписчиков сообщества (для сообщества)
-            var getFollowers = api_group.Groups.GetMembers(new GroupsGetMembersParams() { 
-                GroupId = "205575031", 
-                Fields = VkNet.Enums.Filters.UsersFields.FirstNameAbl 
-            });
-            foreach (User user in getFollowers)
-                Console.WriteLine(user.FirstName);
             // получит запись со стены (для пользователя)
             var api_user = new VkApi();
             // обработать исключения!
@@ -72,6 +65,24 @@ namespace Example_VK_API
             {
                 AccessToken = getAuthForUser()
             });
+
+            // получить список подписчиков сообщества (для сообщества)
+            var getFollowers = api_group.Groups.GetMembers(new GroupsGetMembersParams() { 
+                GroupId = "205575031", 
+                Fields = VkNet.Enums.Filters.UsersFields.FirstNameAbl 
+            });
+            foreach (User user in getFollowers)
+                Console.WriteLine(user.FirstName);
+
+            // получить список друзей (для пользователя)
+            var getFriends = api_user.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams
+            {
+                Fields = VkNet.Enums.Filters.ProfileFields.All
+            });
+            foreach (User user in getFriends)
+                Console.WriteLine(user.FirstName);
+
+
             var get = api_user.Wall.Get(new WallGetParams());
             foreach (var wallPosts in get.WallPosts)
                 Console.WriteLine(Encoding.Default.GetString(Encoding.UTF8.GetBytes(wallPosts.Text)));
